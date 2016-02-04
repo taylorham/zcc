@@ -1,0 +1,131 @@
+.crackhouse {
+  font-family: "Crackhouse", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.eurostile {
+  font-family: "Eurostile", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container-fluid {
+  margin-bottom: 60px;
+}
+
+#page-title h1 {
+  font-family: "Crackhouse";
+  margin: 30px 0 25px;
+  font-size: 60px;
+  color: #fff;
+  text-shadow: #000 0 0 1px, #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;
+}
+
+#dashboard {
+  position: relative;
+  background-image: url("../images/dashboard.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-blend-mode: multiply;
+  width: 100%;
+  height: calc((-28px + 100vw) * 0.59);
+  box-shadow: 0px 2px 15px -2px #000;
+}
+
+.red {
+  background-image: url("../images/dashboard.jpg"), linear-gradient(rgba(255,0,0,0) 43%, rgba(255,0,0,0.8) 61%, rgba(255,0,0,0.8) 100%) !important;
+}
+
+.orange {
+  background-image: url("../images/dashboard.jpg"), linear-gradient(rgba(255,126,0,0) 43%, rgba(255,126,0,0.8) 61%, rgba(255,126,0,0.8) 100%) !important;
+}
+
+.yellow {
+  background-image: url("../images/dashboard.jpg"), linear-gradient(rgba(255,255,0,0) 43%, rgba(255,255,0,0.8) 61%, rgba(255,255,0,0.8) 100%) !important;
+}
+
+.green {
+  background-image: url("../images/dashboard.jpg"), linear-gradient(rgba(0,255,0,0) 43%, rgba(0,255,0,0.8) 61%, rgba(0,255,0,0.8) 100%) !important;
+}
+
+.blue {
+  background-image: url("../images/dashboard.jpg"), linear-gradient(rgba(0,0,255,0) 43%, rgba(0,0,255,0.8) 61%, rgba(0,0,255,0.8) 100%) !important;
+}
+
+.purple {
+  background-image: url("../images/dashboard.jpg"), linear-gradient(rgba(255,0,255,0) 43%, rgba(255,0,255,0.8) 61%, rgba(255,0,255,0.8) 100%) !important;
+}
+
+#dashboard.scrollbar {
+  height: calc((-43px + 100vw) * 0.59);
+}
+
+#dashboard > div {
+  color: #222;
+}
+
+#charName {
+  position: absolute;
+  font-size: 6.5vw;
+  line-height: 5.2vw;
+  top: 27%;
+  left: 0;
+}
+
+#charName input {
+  background: transparent;
+  overflow-x: visible;
+  width: 73%;
+  line-height: 6.6vw;
+  color: #222;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+}
+
+#charName input::-webkit-input-placeholder {
+  color: #666;
+}
+
+#charName input:-moz-placeholder {
+  color: #666;
+}
+
+#charName input::-moz-placeholder {
+  color: #666;
+}
+
+div[id^="skill"] {
+  position: absolute;
+  font-family: "Eurostile";
+  font-weight: bold;
+  font-size: 1.5vw;
+  line-height: 3.1vw;
+  top: 20.8%;
+  height: 2.7vw;
+  width: 19.1vw;
+}
+
+select[id^="skills"] {
+  background: transparent;
+  width: 19.1vw;
+  padding-left: .3vw;
+  font-size: 1.5vw;
+  margin-top: -0.4vw;
+  border: none;
+  -webkit-appearance: none;
+}
+
+#skill1 {
+  left: 7%;
+}
+
+#skill2 {
+  padding-left: .3vw;
+  left: 29.8%;
+}
+
+#skill3 {
+  left: 52.5%;
+}
+
+#skill4 {
+  left: 75.3%;
+}

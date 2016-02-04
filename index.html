@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zombicide!</title>
+  <link rel="stylesheet" href="styles/slate.css">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/custom.css">
+</head>
+<body>
+  <div class="container-fluid">
+
+    <div id="page-title" class="text-center">
+      <h1 class="crackhouse">Zombicide Character Creator</h1>
+    </div>
+
+    <div id="dashboard" class="red">
+      <div id="charName">
+        <span class="crackhouse">
+          <input type="text" name="charName" placeholder="Character Name">
+        </span>
+      </div>
+      <div id="skill1">
+        <select name="skills1" id="skills1"></select>
+      </div>
+      <div id="skill2">
+        +1 Action
+      </div>
+      <div id="skill3">
+        <select name="skills3-1" id="skills3-1"></select>
+        <select name="skills3-2" id="skills3-2"></select>
+      </div>
+      <div id="skill4">
+        <select name="skills4-1" id="skills4-1"></select>
+        <select name="skills4-2" id="skills4-2"></select>
+        <select name="skills4-3" id="skills4-3"></select>
+      </div>
+    </div>
+
+  </div><!-- /.container -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="scripts/zcc.js"></script>
+  <script src="scripts/skills.js"></script>
+  <script src="scripts/view.js"></script>
+  <script>
+    var jimSkills = [
+      Skills.startsWithA,
+      [Skills.ambidextrous, Skills.holdYourNose],
+      [Skills.extra.diceRoll.melee, Skills.hoard, Skills.extra.damage.ranged]
+    ];
+    var NewChar = new character('Jim', jimSkills, ['']);
+    console.log('\nCharacter created! ' + NewChar.charName + ' has joined the game.'
+                + '\n\n' + NewChar.charName + '\'s inventory: ' + inventoryList(NewChar)
+                + '\n\n' + NewChar.charName + ' has the following skills to choose from:'
+                + '\n' + skillList(NewChar)
+                + '\n\n' + NewChar.charName + ' has the "' + NewChar.skills.skill1.name + ' (Shotgun)" skill');
+    NewChar.skills.skill1.func.call(NewChar, 'Shotgun');
+    console.log('\nJim\'s updated inventory: ' + inventoryList(NewChar));
+  </script>
+</body>
+</html>

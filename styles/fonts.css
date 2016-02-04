@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Crackhouse";
+    src: url("../fonts/crackhouse.woff")
+}
+@font-face {
+    font-family: "Eurostile";
+    src: url("../fonts/Eurostile-Condensed.ttf")
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Eurostile";
+    src: url("../fonts/Eurostile-Bold-Condensed.ttf")
+    font-weight: bold;
+}
