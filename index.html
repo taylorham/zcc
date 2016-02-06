@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Zombicide!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/slate.css">
   <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/custom.css">
@@ -16,7 +17,7 @@
     <div id="dashboard" class="red">
       <div id="charName">
         <span class="crackhouse">
-          <input type="text" name="charName" placeholder="Character Name">
+          <input type="text" name="charName" placeholder="Name">
         </span>
       </div>
       <div id="skill1">
@@ -46,7 +47,7 @@
     var jimSkills = [
       Skills.startsWithA,
       [Skills.ambidextrous, Skills.holdYourNose],
-      [Skills.extra.diceRoll.melee, Skills.hoard, Skills.extra.damage.ranged]
+      [Skills.extra_roll_melee, Skills.hoard, Skills.extra_damage_ranged]
     ];
     var NewChar = new character('Jim', jimSkills, ['']);
     console.log('\nCharacter created! ' + NewChar.charName + ' has joined the game.'
