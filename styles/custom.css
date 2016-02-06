@@ -3,7 +3,7 @@
 }
 
 .eurostile {
-  font-family: "Eurostile", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Eurostile", "Homenaje", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container-fluid {
@@ -94,7 +94,7 @@
 
 div[id^="skill"] {
   position: absolute;
-  font-family: "Eurostile";
+  font-family: "Eurostile", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 1.5vw;
   line-height: 3.1vw;
