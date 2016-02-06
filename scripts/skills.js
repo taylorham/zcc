@@ -1,123 +1,115 @@
 'use strict'
 
 var Skills = {
-  extra: {
-    action: {
-      name: "+1 Action",
-      desc: "The Survivor has an extra Action he may use as he pleases.",
-      func: function() {
-        this.actions += 1
+  extra_action: {
+    name: "+1 Action",
+    desc: "The Survivor has an extra Action he may use as he pleases.",
+    func: function() {
+      this.actions += 1
+    }
+  },
+  extra_combat: {
+    name: "+1 free Combat Action",
+    desc: "The Survivor has one free extra Combat Action. This Action may only be used for Melee or Ranged Combat.",
+    func: function() {
+      if (!this.hasOwnProperty('free')) {
+        this.free = []
       }
-    },
-    combat: {
-      name: "+1 free Combat Action",
-      desc: "The Survivor has one free extra Combat Action. This Action may only be used for Melee or Ranged Combat.",
-      func: function() {
-        if (!this.hasOwnProperty('free')) {
-          this.free = []
-        }
-        this.free.push('combat')
+      this.free.push('combat')
+    }
+  },
+  extra_move: {
+    name: "+1 free Move Action",
+    desc: "The Survivor has one free extra Move Action. This Action may only be used as a Move Action.",
+    func: function() {
+      if (!this.hasOwnProperty('free')) {
+        this.free = []
       }
-    },
-    move: {
-      name: "+1 free Move Action",
-      desc: "The Survivor has one free extra Move Action. This Action may only be used as a Move Action.",
-      func: function() {
-        if (!this.hasOwnProperty('free')) {
-          this.free = []
-        }
-        this.free.push('move')
+      this.free.push('move')
+    }
+  },
+  extra_search: {
+    name: "+1 free Search Action",
+    desc: "The Survivor has one free extra Search Action. This Action may only be used to Search and the Survivor can still only Search once per turn.",
+    func: function() {
+      if (!this.hasOwnProperty('free')) {
+        this.free = []
       }
-    },
-    search: {
-      name: "+1 free Search Action",
-      desc: "The Survivor has one free extra Search Action. This Action may only be used to Search and the Survivor can still only Search once per turn.",
-      func: function() {
-        if (!this.hasOwnProperty('free')) {
-          this.free = []
-        }
-        this.free.push('search')
+      this.free.push('search')
+    }
+  },
+  extra_damage_melee: {
+    name: "+1 Melee Damage",
+    desc: "The Survivor gets a +1 Damage bonus with Melee weapons.",
+    func: function() {
+      if (this.active1.cardType === 'melee') {
+        this.active1.damage += 1
       }
-    },
-    damage: {
-      melee: {
-        name: "+1 Melee Damage",
-        desc: "The Survivor gets a +1 Damage bonus with Melee weapons.",
-        func: function() {
-          if (this.active1.cardType === 'melee') {
-            this.active1.damage += 1
-          }
-        }
-      },
-      ranged: {
-        name: "+1 Ranged Damage",
-        desc: "The Survivor gets a +1 Damage bonus with Ranged weapons.",
-        func: function() {
-          if (this.active1.cardType === 'ranged') {
-            this.active1.damage += 1
-          }
-        }
+    }
+  },
+  extra_damage_ranged: {
+    name: "+1 Ranged Damage",
+    desc: "The Survivor gets a +1 Damage bonus with Ranged weapons.",
+    func: function() {
+      if (this.active1.cardType === 'ranged') {
+        this.active1.damage += 1
       }
-    },
-    diceRoll: {
-      combat: {
-        name: "+1 to dice roll: Combat",
-        desc: "The Survivor adds 1 to the result of each die he rolls on a Combat Action (Melee or Ranged). The maximum result is always 6.",
-        func: function() {
+    }
+  },
+  extra_roll_combat: {
+    name: "+1 to dice roll: Combat",
+    desc: "The Survivor adds 1 to the result of each die he rolls on a Combat Action (Melee or Ranged). The maximum result is always 6.",
+    func: function() {
 
-        }
-      },
-      melee: {
-        name: "+1 to dice roll: Melee",
-        desc: "The Survivor adds 1 to the result of each die he rolls in Melee Combat. The maximum result is always 6.",
-        func: function() {
+    }
+  },
+  extra_roll_melee: {
+    name: "+1 to dice roll: Melee",
+    desc: "The Survivor adds 1 to the result of each die he rolls in Melee Combat. The maximum result is always 6.",
+    func: function() {
 
-        }
-        },
-      ranged: {
-        name: "+1 to dice roll: Ranged",
-        desc: "The Survivor adds 1 to the result of each die he rolls in Ranged Combat. The maximum result is always 6.",
-        func: function() {
+    }
+  },
+  extra_roll_ranged: {
+    name: "+1 to dice roll: Ranged",
+    desc: "The Survivor adds 1 to the result of each die he rolls in Ranged Combat. The maximum result is always 6.",
+    func: function() {
 
-        }
-      }
-    },
-    die: {
-      combat: {
-        name: "+1 die: Combat",
-        desc: "The Survivor's weapons roll an extra die in Combat (Melee or Ranged). Dual weapons gain a die each, for a total of +2 dice per Dual Combat Action.",
-        func: function() {
+    }
+  },
+  extra_die_combat: {
+    name: "+1 die: Combat",
+    desc: "The Survivor's weapons roll an extra die in Combat (Melee or Ranged). Dual weapons gain a die each, for a total of +2 dice per Dual Combat Action.",
+    func: function() {
 
-        }
-      },
-      melee: {
-        name: "+1 die: Melee",
-        desc: "The Survivor's Melee weapons rolls an extra die in Combat. Dual melee weapons gain a die each, for a total of +2 dice per Dual Melee Combat Action.",
-        func: function() {
+    }
+  },
+  extra_die_melee: {
+    name: "+1 die: Melee",
+    desc: "The Survivor's Melee weapons rolls an extra die in Combat. Dual melee weapons gain a die each, for a total of +2 dice per Dual Melee Combat Action.",
+    func: function() {
 
-        }
-      },
-      ranged: {
-        name: "+1 die: Ranged",
-        desc: "The Survivor's Ranged weapons roll an extra die in Combat. Dual ranged weapons gain a die each, for a total of +2 dice per Dual Ranged Combat Action.",
-        func: function() {
+    }
+  },
+  extra_die_ranged: {
+    name: "+1 die: Ranged",
+    desc: "The Survivor's Ranged weapons roll an extra die in Combat. Dual ranged weapons gain a die each, for a total of +2 dice per Dual Ranged Combat Action.",
+    func: function() {
 
-        }
-      }
-    },
-    range: {
-      name: "+1 max Range",
-      desc: "The Survivor's Ranged weapons' maximum Range is increased by 1.",
-      func: function() {
+    }
+  },
+  extra_range: {
+    name: "+1 max Range",
+    desc: "The Survivor's Ranged weapons' maximum Range is increased by 1.",
+    func: function() {
 
-      }
-    },
-    zone: {
-      name: "+1 Zone per Move",
-      desc: "The Survivor can move through one extra Zone each time he performs a Move Action. This Skill stacks with other effects benefitting Move Actions.",
-      func: function() {
+    }
+  },
+  extra_zone: {
+    name: "+1 Zone per Move",
+    desc: "The Survivor can move through one extra Zone each time he performs a Move Action. This Skill stacks with other effects benefitting Move Actions.",
+    func: function() {
 
-      }
     }
   },
   re_roll: {
