@@ -65,36 +65,33 @@
   position: absolute;
   font-size: 6.5vw;
   line-height: 5.2vw;
-  top: 27%;
+  top: 28%;
   left: 0;
 }
 
-#charName input {
+#charName textarea {
   background: transparent;
-  overflow-x: visible;
-  width: 73%;
-  line-height: 6.6vw;
+  resize: none;
   color: #222;
+  text-shadow: 0px 0px 1px #fff;
   text-align: center;
   text-transform: uppercase;
   border: none;
 }
 
-#charName input::-webkit-input-placeholder {
-  color: #666;
+#charName textarea::-webkit-input-placeholder {
+  text-shadow: none;
+  color: #777;
 }
 
-#charName input:-moz-placeholder {
-  color: #666;
+#charName textarea::-moz-placeholder {
+  text-shadow: none;
+  color: #777;
 }
 
-#charName input::-moz-placeholder {
-  color: #666;
-}
-
-div[id^="skill"] {
+#skill1, #skill2, #skill3, #skill4 {
   position: absolute;
-  font-family: "Eurostile", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Eurostile", "Homenaje", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 1.5vw;
   line-height: 3.1vw;
@@ -105,10 +102,12 @@ div[id^="skill"] {
 
 select[id^="skills"] {
   background: transparent;
-  width: 19.1vw;
+  width: 19.6vw;
+  height: 2.7vw;
+  line-height: 2.5vw;
   padding-left: .3vw;
   font-size: 1.5vw;
-  margin-top: -0.4vw;
+  margin-top: .1vw;
   border: none;
   -webkit-appearance: none;
 }
@@ -128,4 +127,8 @@ select[id^="skills"] {
 
 #skill4 {
   left: 75.3%;
+}
+
+#skill-descriptions div {
+  margin-bottom: 15px;
 }
