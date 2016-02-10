@@ -12,7 +12,7 @@ $(document).ready(function() {
   // Create an array of <options>, seeded by a placeholder value.
   var html = ['<option value="" disabled selected hidden>Choose skill...</option>'];
   for (var key in Skills) {
-    html.push('<option value="' + Skills[key].name + '">' + Skills[key].name + '</option>');
+    html.push('<option value="' + Skills[key].name + '" title="' + Skills[key].desc + '">' + Skills[key].name + '</option>');
   }
 
   // Create an array of each <select>'s ID that will receive the
@@ -34,17 +34,22 @@ $('select[name^="skills"]').change(function(){
 
   // Loop each <select> and set the selected value to disabled in all other <select>s.
   $('select[name^="skills"]').each(function(){
-    var $this = $(this);
-    $('select[name^="skills"]').not($this).find('option').each(function() {
-      if ($(this).attr('value') == $this.val()) {
+    let $self = $(this);
+    $('select[name^="skills"]').not($self).find('option').each(function() {
+      if ($(this).attr('value') == $self.val()) {
         $(this).attr('disabled', true);
       }
     });
   });
-
+  let $self = $(this);
+  let $selfSelected = $('#' + $self.attr('id') + ' option:selected');
+  let selfName = '<strong>' + $selfSelected.val() + ' - </strong>';
+  let selfDescription = $selfSelected.attr('title');
+  console.log($self.attr('id'));
+  $('#' + $self.attr('id') + '-description').html(selfName + selfDescription);
 });
 
-// On resizing of a window, we'll check to see if it has a scrollbar
+// On resizing of the window, we'll check to see if it has a scrollbar
 // and apply the necessary class, or remove it if the scrollbar is gone.
 $(window).resize(function() {
   if ($('body').height() > $(window).height()) {
